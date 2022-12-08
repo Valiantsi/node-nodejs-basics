@@ -1,12 +1,11 @@
 import { readFile } from 'node:fs/promises';
 
 const errorMessage = 'FS operation failed';
-const filePath = new URL('./files/fileToRead.txt', import.meta.url);
-const contents = await readFile(filePath, { encoding: 'utf8' });
+const filePath = "src/fs/files/fileToRead.txt";
 
 const read = async () => {
     try {
-        await readFile(contents);
+        const contents = await readFile(filePath, { encoding: 'utf8' });
         console.log(contents);
     }  catch (err) {
         throw new Error(errorMessage);
